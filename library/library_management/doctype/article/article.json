@@ -1,0 +1,86 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "Article-.#####",
+ "creation": "2022-10-31 12:23:05.000313",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "book_name",
+  "author",
+  "language",
+  "status",
+  "book_user"
+ ],
+ "fields": [
+  {
+   "fieldname": "book_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Book Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "author",
+   "fieldtype": "Data",
+   "label": "Author"
+  },
+  {
+   "fieldname": "language",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Language",
+   "reqd": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "\nIssue\nAvaliable",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval:doc.status == \"Issue\"",
+   "fieldname": "book_user",
+   "fieldtype": "Link",
+   "label": "Book User",
+   "mandatory_depends_on": "// eval:doc.Status==\"Issue\"",
+   "options": "Library Member"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [
+  {
+   "link_doctype": "Library Transaction",
+   "link_fieldname": "book_name"
+  }
+ ],
+ "modified": "2022-11-03 15:01:35.236204",
+ "modified_by": "Administrator",
+ "module": "Library Management",
+ "name": "Article",
+ "name_case": "Title Case",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
